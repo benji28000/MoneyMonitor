@@ -1,7 +1,11 @@
+// app.config.ts
 import { provideRouter } from '@angular/router';
-import { routes } from './app.routes';
-import {provideHttpClient, withFetch} from "@angular/common/http";
+import { provideHttpClient, withFetch } from '@angular/common/http';
+import { routes } from './app.routes';  // Assurez-vous que le chemin est correct
 
 export const appConfig = {
-  providers: [provideRouter(routes), provideHttpClient(withFetch())]
+  providers: [
+    provideRouter(routes),
+    provideHttpClient(withFetch())
+  ]
 };

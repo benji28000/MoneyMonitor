@@ -25,6 +25,7 @@ export class SignupComponent {
       this.userService.register(this.signupForm.value).subscribe({
         next: (response) => {
           console.log('User registered', response);
+
         },
         error: (error) => {
           console.error('Error registering user', error);

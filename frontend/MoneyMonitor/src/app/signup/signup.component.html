@@ -1,12 +1,13 @@
 <div class="container mt-5">
   <div class="card">
-    <div class="card-body">
+    <div class="card-body p-1">
       <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="row">
         <div class="col-md-6">
           <div class="form-group">
             <label for="name">Name</label>
             <input type="text" id="name" formControlName="name" class="form-control">
           </div>
+          <a href="/login">Vous avez déja un compte? Connectez-vous.</a>
         </div>
         <div class="col-md-6">
           <div class="form-group">
@@ -18,7 +19,7 @@
             <input type="password" id="password" formControlName="password" class="form-control">
           </div>
         </div>
-        <div class="col-12 text-center">
+        <div class="col-12 text-right">
           <button type="submit"  class="btn btn-primary">Sign Up</button>
         </div>
       </form>

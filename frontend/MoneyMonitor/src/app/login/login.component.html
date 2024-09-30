@@ -1,0 +1,26 @@
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" formControlName="email" class="form-control">
+          </div>
+          <div>
+            <button type="submit" class="btn btn-primary">Login</button>
+          </div>        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" formControlName="password" class="form-control">
+          </div>
+
+          <a href="/signup">Vous n'avez pas de compte? Créez-vous en un.</a>
+
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

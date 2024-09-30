@@ -45,4 +45,27 @@ public class UserController {
 
         return ResponseEntity.ok(response);
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<?> loginUser(@RequestBody User user) {
+        User savedUser = userRepository.findByEmail(user.getEmail());
+        if (savedUser == null) {
+            Map<String, String> error = new HashMap<>();
+            error.put("message", "User not found.");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+        }
+
+        if (!passwordEncoder.matches(user.getPassword(), savedUser.getPassword())) {
+            Map<String, String> error = new HashMap<>();
+            error.put("message", "Invalid password.");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(error);
+        }
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("id", savedUser.getId());
+        response.put("email", savedUser.getEmail());
+        response.put("name", savedUser.getName());
+
+        return ResponseEntity.ok(response);
+    }
 }
