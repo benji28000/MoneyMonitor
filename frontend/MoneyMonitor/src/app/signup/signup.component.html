@@ -1,28 +1,37 @@
-<div class="container mt-5">
-  <div class="card">
-    <div class="card-body p-1">
-      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" formControlName="name" class="form-control">
-          </div>
-          <a href="/login">Vous avez déja un compte? Connectez-vous.</a>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" formControlName="email" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" formControlName="password" class="form-control">
-          </div>
-        </div>
-        <div class="col-12 text-right">
-          <button type="submit"  class="btn btn-primary">Sign Up</button>
-        </div>
-      </form>
-    </div>
+<div class="flex items-center justify-center min-h-screen">
+  <div class="w-full max-w-md bg-white rounded-lg shadow-md p-8">
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="space-y-6">
+      <mat-form-field class="w-full ">
+        <mat-label class="text-blue-700">Name</mat-label>
+        <input matInput type="text" id="name" formControlName="name" required>
+      </mat-form-field>
+
+      <mat-form-field class="w-full">
+        <mat-label class="text-blue-700 ">Email</mat-label>
+        <input matInput type="email" id="email" formControlName="email" required>
+      </mat-form-field>
+
+      <mat-form-field class="w-full">
+        <mat-label class="text-blue-700">Enter your password</mat-label>
+        <input matInput [type]="hide() ? 'password' : 'text'" formControlName="password" />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="clickEvent($event)"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide()"
+        >
+          <mat-icon class="text-blue-700">{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <button mat-raised-button  type="submit" class="w-full">
+        Sign Up
+      </button>
+
+      <div class="text-center">
+        <a routerLink="/login" class="text-blue-600 hover:underline">Vous avez déjà un compte? Connectez-vous.</a>
+      </div>
+    </form>
   </div>
 </div>

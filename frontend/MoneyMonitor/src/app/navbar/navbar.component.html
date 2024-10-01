@@ -1,22 +1,21 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">MoneyMonitor</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+<mat-toolbar color="primary" class="bg-blue-700 text-white p-4 shadow-md flex justify-between items-center">
+  <span class="text-xl font-bold">MoneyMonitor</span>
+
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="md:hidden">
+    <mat-icon>menu</mat-icon>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/signup">Inscription</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/login">Connexion</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" (click)="logout()" href="/">Logout</a>
-      </li>
-    </ul>
+
+  <mat-menu #menu="matMenu" class="p-2">
+    <button mat-menu-item routerLink="/home">Home</button>
+    <button mat-menu-item routerLink="/signup">Inscription</button>
+    <button mat-menu-item routerLink="/login">Connexion</button>
+    <button mat-menu-item (click)="logout()">Logout</button>
+  </mat-menu>
+
+  <div class="hidden md:flex space-x-4">
+    <a routerLink="/home" class="px-4 py-2 rounded-md hover:bg-blue-600">Home</a>
+    <a routerLink="/signup" class="px-4 py-2 rounded-md hover:bg-blue-600">Inscription</a>
+    <a routerLink="/login" class="px-4 py-2 rounded-md hover:bg-blue-600">Connexion</a>
+    <a (click)="logout()" class="px-4 py-2 rounded-md hover:bg-blue-600 cursor-pointer">Logout</a>
   </div>
-</nav>
+</mat-toolbar>
